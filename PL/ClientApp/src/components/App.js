@@ -1,9 +1,9 @@
 import ToDoList from "./ToDoList";
 
 const App = () => {
-  return (
-    <ToDoList />
-  );
+    return (
+        <ToDoList />
+    );
 }
 
 export default App;

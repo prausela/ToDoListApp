@@ -21,13 +21,14 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="ClientApp\src\adapters" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\BLL\BLL.csproj" />
       <ProjectReference Include="..\CIL\CIL.csproj" />
       <ProjectReference Include="..\DIL\DIL.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="ClientApp\build\asset-manifest.json" />
+      <_ContentIncludedByDefault Remove="ClientApp\build\manifest.json" />
     </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
