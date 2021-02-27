@@ -22,7 +22,6 @@
 
     <ItemGroup>
       <Folder Include="ClientApp\src\adapters" />
-      <Folder Include="DTOs" />
     </ItemGroup>
 
     <ItemGroup>
