@@ -20,8 +20,9 @@ namespace DAL
         { 
             IConfigurationRoot configuration = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile(@Directory.GetCurrentDirectory() + "/../PL/appsettings.json").Build(); 
             var builder = new DbContextOptionsBuilder<DatabaseContext>(); 
-            var connectionString = configuration.GetConnectionString("DatabaseConnection"); 
-            builder.UseSqlServer(connectionString); 
+            var connectionString = configuration.GetConnectionString("DatabaseConnection");
+            var serverVersion = ServerVersion.AutoDetect(connectionString);
+            builder.UseMySql(connectionString, serverVersion); 
             return new DatabaseContext(builder.Options); 
         } 
     }
