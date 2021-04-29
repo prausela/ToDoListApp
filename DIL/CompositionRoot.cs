@@ -13,7 +13,8 @@ namespace DIL
     {
         public static void InjectDependencies(IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(configuration.GetConnectionString("DatabaseConnection")));
+            string connectionString = configuration.GetConnectionString("DatabaseConnection");
+            services.AddDbContext<DatabaseContext>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
             services.AddScoped<DatabaseContext>();
             services.AddScoped<IToDoListService, ToDoListService>();
             services.AddScoped<IToDoListRepository, ToDoListRepository>();
