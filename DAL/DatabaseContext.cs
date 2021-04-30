@@ -18,7 +18,7 @@ namespace DAL
     { 
         public DatabaseContext CreateDbContext(string[] args) 
         { 
-            IConfigurationRoot configuration = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile(@Directory.GetCurrentDirectory() + "/../PL/appsettings.json").Build(); 
+            IConfigurationRoot configuration = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile(@Directory.GetCurrentDirectory() + "/../PL2/appsettings.json").Build(); 
             var builder = new DbContextOptionsBuilder<DatabaseContext>(); 
             var connectionString = configuration.GetConnectionString("DatabaseConnection"); 
             builder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)); 
